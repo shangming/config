@@ -17,8 +17,8 @@ set backspace=2            "设置退格键可用,设置为2是因为中文占2�
 set autoindent "自动缩进
 set tabstop=4 "设置tab键的宽度
 set shiftwidth=4 "设置当行之间交错时使用4个空格
-set expandtab "自动将tab转换为空格
-set softtabstop=4 "转为4个空格
+"set expandtab "自动将tab转换为空格
+"set softtabstop=4 "转为4个空格
 set cursorline "高亮当前行
 set cursorcolumn "高亮当前列
 set textwidth=80 "一行显示多少个字符
@@ -63,6 +63,8 @@ nmap <leader>7 :b 7<CR>
 nmap <leader>8 :b 8<CR>
 nmap <leader>9 :b 9<CR>
 nmap <leader>d :bdelete<CR>
+nmap <leader>t :terminal<CR>
+nmap <leader>q <C-w>q
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -89,6 +91,7 @@ Plug 'overcache/NeoSolarized'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'lasorda/lpc.vim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "colorscheme NeoSolarized
@@ -114,7 +117,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1 "tabline中buffer显示编�
 
 "fzf
 nmap <C-p> :Files<CR>
-nmap <C-f> :Rg<CR>
+nmap <leader>f :Rg<CR>
 
 "leaaderf
 "nmap <C-f> <Plug>LeaderfRgPrompt
@@ -204,8 +207,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>ff  <Plug>(coc-format-selected)
+nmap <leader>ff  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
