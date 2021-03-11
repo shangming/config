@@ -17,13 +17,13 @@ set backspace=2            "设置退格键可用,设置为2是因为中文占2�
 set autoindent "自动缩进
 set tabstop=4 "设置tab键的宽度
 set shiftwidth=4 "设置当行之间交错时使用4个空格
-"set expandtab "自动将tab转换为空格
+"set noexpandtab "自动将tab转换为空格
 "set softtabstop=4 "转为4个空格
 set cursorline "高亮当前行
 set cursorcolumn "高亮当前列
 set textwidth=80 "一行显示多少个字符
 "set showbreak=-> "拆行的符号
-set wrap "自动拆行
+"set wrap "自动拆行
 set laststatus=2 "显示状态栏
 set ruler "显示当前光标的行号和列号
 set showmatch "高亮配对的括号
@@ -48,29 +48,29 @@ set autowrite  "档案有有更新就自动存档。
 "set clipboard=unnamed "共享剪贴板
 "set clipboard=unnamedplus
 
-nmap <F5> <ESC>:!lpc_compile %<CR>
-nmap <F6> <ESC>:!lpc_update %<CR>
-nmap <F10> <ESC>:!lpc_test % 
-nmap <F3> :TlistToggle<CR>
-nmap <F2> :NERDTreeToggle<CR>
-nmap <leader>1 :b 1<CR>
-nmap <leader>2 :b 2<CR>
-nmap <leader>3 :b 3<CR>
-nmap <leader>4 :b 4<CR>
-nmap <leader>5 :b 5<CR>
-nmap <leader>6 :b 6<CR>
-nmap <leader>7 :b 7<CR>
-nmap <leader>8 :b 8<CR>
-nmap <leader>9 :b 9<CR>
-nmap <leader>d :bdelete<CR>
-nmap <leader>t :terminal<CR>
-nmap <leader>q <C-w>q
+nnoremap <F5> <ESC>:!lpc_compile %<CR>
+nnoremap <F6> <ESC>:!lpc_update %<CR>
+nnoremap <F10> <ESC>:!lpc_test % 
+nnoremap <F3> :TlistToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <leader>1 :b 1<CR>
+nnoremap <leader>2 :b 2<CR>
+nnoremap <leader>3 :b 3<CR>
+nnoremap <leader>4 :b 4<CR>
+nnoremap <leader>5 :b 5<CR>
+nnoremap <leader>6 :b 6<CR>
+nnoremap <leader>7 :b 7<CR>
+nnoremap <leader>8 :b 8<CR>
+nnoremap <leader>9 :b 9<CR>
+nnoremap <leader>d :bdelete<CR>
+nnoremap <leader>t :terminal<CR>
+nnoremap <leader>q <C-w>q
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
 "Plug 'dgryski/vim-godef'
-"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
 "Plug 'Valloric/YouCompleteMe'
@@ -100,6 +100,10 @@ call plug#end()
 "color molokai
 colorscheme molokai
 
+"nerdtree
+let g:NERDTreeWinSize=25
+
+
 " youcompleme配置
 "set completeopt-=preview
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1 " 注释与字符串中的内容也用于补全"
@@ -116,11 +120,11 @@ let g:airline#extensions#tabline#enabled = 1 "开启tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1 "tabline中buffer显示编号
 
 "fzf
-nmap <C-p> :Files<CR>
-nmap <leader>f :Rg<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>f :Rg<CR>
 
 "leaaderf
-"nmap <C-f> <Plug>LeaderfRgPrompt
+"nnoremap <C-f> <Plug>LeaderfRgPrompt
 "map <C-f> :Leaderf rg<CR>
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", expand("<cword>"))<CR>
 
@@ -286,3 +290,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nmap <silent> <C-]> <Plug>(coc-definition)
+"nnoremap <silent> <C-]> <Plug>(coc-definition)
+
