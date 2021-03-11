@@ -66,6 +66,8 @@ nnoremap <leader>d :bdelete<CR>
 nnoremap <leader>t :terminal<CR>
 nnoremap <leader>q <C-w>q
 
+cnoremap <expr> %% getcmdtype()==':'?expand('%:h').'/':'%%'
+
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
@@ -128,6 +130,7 @@ nnoremap <leader>f :Rg<CR>
 "map <C-f> :Leaderf rg<CR>
 "noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", expand("<cword>"))<CR>
 
+"coc配置
 " TextEdit might fail if hidden is not set.
 set hidden
 
